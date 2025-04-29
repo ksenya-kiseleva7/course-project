@@ -12,7 +12,7 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www
 
 # Копируем проект
-COPY . .
+COPY invest-real-estate .
 
 # Устанавливаем зависимости Laravel
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
