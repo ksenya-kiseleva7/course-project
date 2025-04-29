@@ -1,41 +1,56 @@
+$manrope:'Manrope', sans-serif, -apple-system, BlinkMacSystemFont, Arial;
+
+//цвета
+$white: #ffffff;
+$light-green: #D7EBE5;
+$green: #00BF86;
+$black:#141623;
+$background: #F2F2F2;
+$dark: #333333;
+
+
 @font-face {
-    font-family: 'Manrope Bold';
+    font-family: 'Manrope';
     src: url('../fonts/manrope_bold.eot'); /* IE 9 Compatibility Mode */
     src: url('../fonts/manrope_bold.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
     url('../fonts/manrope_bold.woff2') format('woff2'), /* Super Modern Browsers */
     url('../fonts/manrope_bold.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
     url('../fonts/manrope_bold.ttf') format('truetype'), /* Safari, Android, iOS */
     url('../fonts/manrope_bold.svg#manrope_bold') format('svg'); /* Chrome < 4, Legacy iOS */
+    font-weight: 700;
 }
 
 @font-face {
-    font-family: 'Manrope Light';
+    font-family: 'Manrope';
     src: url('../fonts/manrope_light.eot'); /* IE 9 Compatibility Mode */
     src: url('../fonts/manrope_light.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
     url('../fonts/manrope_light.woff2') format('woff2'), /* Super Modern Browsers */
     url('../fonts/manrope_light.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
     url('../fonts/manrope_light.ttf') format('truetype'), /* Safari, Android, iOS */
     url('../fonts/manrope_light.svg#manrope_light') format('svg'); /* Chrome < 4, Legacy iOS */
+    font-weight: 300;
 }
 
 @font-face {
-    font-family: 'Manrope Medium';
+    font-family: 'Manrope';
     src: url('../fonts/manrope_medium.eot'); /* IE 9 Compatibility Mode */
     src: url('../fonts/manrope_medium.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
     url('../fonts/manrope_medium.woff2') format('woff2'), /* Super Modern Browsers */
     url('../fonts/manrope_medium.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
     url('../fonts/manrope_medium.ttf') format('truetype'), /* Safari, Android, iOS */
     url('../fonts/manrope_medium.svg#manrope_medium') format('svg'); /* Chrome < 4, Legacy iOS */
+    font-weight: 500;
 }
 
 @font-face {
-    font-family: 'Manrope Regular';
+    font-family: 'Manrope';
     src: url('../fonts/manrope_regular.eot'); /* IE 9 Compatibility Mode */
     src: url('../fonts/manrope_regular.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
     url('../fonts/manrope_regular.woff2') format('woff2'), /* Super Modern Browsers */
     url('../fonts/manrope_regular.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
     url('../fonts/manrope_regular.ttf') format('truetype'), /* Safari, Android, iOS */
     url('../fonts/manrope_regular.svg#manrope_regular') format('svg'); /* Chrome < 4, Legacy iOS */
+    font-weight: 400;
 }
 
 @font-face {
@@ -58,3 +73,124 @@
     url('../fonts/manrope_thin.svg#manrope_thin') format('svg'); /* Chrome < 4, Legacy iOS */
 }
 
+//миксины
+
+@mixin font($size: 16px, $weight: 400, $lHeight: 100%) {
+    font-family: $manrope;
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $lHeight;
+    font-style: normal;
+    font-optical-sizing: auto;
+    font-variation-settings: "slnt" 0, "CRSV" 0, "SHRP" 0;
+}
+
+//отступы
+@mixin fluid-space(
+    $property,
+    $max: 100,
+    $min: 10,
+
+) {
+    $maxVW: 1920;
+    $minVW: 320;
+    $maxValue: math.div($max, 16);
+    $minValue: math.div($min, 16);
+    $maxWidth: math.div($maxVW, 16);
+    $minWidth: math.div($minVW, 16);
+
+    $slope: math.div(($maxValue - $minValue), ($maxWidth - $minWidth));
+    $yAxisIntersection: -$minWidth * $slope + $minValue;
+
+    #{$property}: clamp(
+        #{$minValue*1rem},
+        #{$yAxisIntersection*1rem} + #{$slope*100vw},
+        #{$maxValue*1rem}
+    );
+}
+
+// Миксин для заголовков
+@mixin fluid-text($max, $min, $lineHeight, $uppercase: false) {
+    $maxViewportWidth: 1920;
+    $minViewportWidth: 320;
+    $maxSize: math.div($max, 16);
+    $minSize: math.div($min, 16);
+    $maxWidth: math.div($maxViewportWidth, 16);
+    $minWidth: math.div($minViewportWidth, 16);
+
+    $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
+    $yAxisIntersection: -$minWidth * $slope + $minSize;
+
+    font-size: clamp(
+        #{$minSize} * 1rem,
+        #{$yAxisIntersection} * 1rem + #{$slope * 100vw},
+        #{$maxSize} * 1rem
+    );
+    line-height: $lineHeight;
+
+    @if $uppercase == true {
+        text-transform: uppercase;
+    }
+}
+
+body {
+    font-family: $manrope;
+    background-color: $background;
+    min-width: 320px;
+    position: relative;
+    overflow-x: hidden !important;
+    color: $dark;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    &.after::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.25);
+        z-index: 10;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: currentColor;
+
+    &:active {
+        outline: none;
+    }
+    &:focus {
+        border: $green auto 1px;
+    }
+}
+
+p {
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
