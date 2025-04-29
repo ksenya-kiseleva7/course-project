@@ -1,0 +1,34 @@
+@use 'sass:math';
+@import "config";
+
+// base
+@import "ui/base/contact.scss";
+@import "ui/base/container.scss";
+@import "ui/base/headlines.scss";
+@import "ui/base/margins.scss";
+@import "ui/base/other.scss";
+@import "ui/base/pagination.scss";
+@import "ui/base/scrollbar.scss";
+
+//ui
+@import "ui/components/button.scss";
+@import "ui/components/checkbox.scss";
+@import "ui/components/input.scss";
+@import "ui/components/accordeon.scss";
+
+// шапка футер модалки
+@import "site/header.scss";
+@import "site/footer.scss";
+@import "site/modal.scss";
+
+// карточки
+
+//секции
+
+// блоки главной страницы
+
+// каталог
+
+// контакты
+
+// ошибки

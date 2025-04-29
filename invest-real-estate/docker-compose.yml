@@ -1,44 +1,51 @@
-version: '3.8'
-
 services:
-  app:
-    image: php:8.1-fpm
-    container_name: app
-    working_dir: /var/www
-    volumes:
-      - .:/var/www
-    networks:
-      - app-network
+    laravel:
+        container_name: laravel_app
+        build:
+            context: .
+        volumes:
+            - ./:/var/www
+        depends_on:
+            mysql:
+                condition: service_healthy
+        networks:
+            - laravel
 
-  webserver:
-    image: nginx:alpine
-    container_name: nginx
-    ports:
-      - "8081:80"
-    volumes:
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-      - .:/var/www
-    depends_on:
-      - app
-    networks:
-      - app-network
+    nginx:
+        container_name: nginx_app
+        image: nginx:latest
+        ports:
+            - "8000:80"
+        volumes:
+            - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+            - ./:/var/www
+        depends_on:
+            - laravel
+        networks:
+            - laravel
 
-  mysql:
-    image: mysql:8.0
-    container_name: mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: admin_test
-      MYSQL_DATABASE: real_estate_investment
-    ports:
-      - "3308:3306"
-    volumes:
-      - mysql-data:/var/lib/mysql
-    networks:
-      - app-network
-
-networks:
-  app-network:
-    driver: bridge
+    mysql:
+        container_name: mysql_app
+        image: mysql:8.0
+        ports:
+            - "3308:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: admin_test
+            MYSQL_DATABASE: real_estate_investment
+            MYSQL_USER: admin_test
+            MYSQL_PASSWORD: admin_test
+        volumes:
+            - db_data:/var/lib/mysql
+        healthcheck:
+            test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+            retries: 5
+            timeout: 10s
+        networks:
+            - laravel
 
 volumes:
-  mysql-data:
+    db_data:
+
+networks:
+    laravel:
+        driver: bridge
