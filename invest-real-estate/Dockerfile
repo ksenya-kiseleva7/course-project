@@ -1,30 +1,30 @@
-# Используем официальный PHP образ
 FROM php:8.2-fpm
 
-# Устанавливаем зависимости
+# Установим зависимости
 RUN apt-get update && apt-get install -y \
-    git curl libpng-dev libjpeg-dev libonig-dev libxml2-dev zip unzip \
-    libzip-dev libpq-dev libfreetype6-dev \
+    git curl zip unzip libpng-dev libjpeg-dev libfreetype6-dev libonig-dev libxml2-dev \
     && docker-php-ext-install pdo pdo_mysql mbstring zip exif pcntl bcmath gd
 
-# Устанавливаем Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+# Установим Composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Создаем рабочую директорию
+# Создаём рабочую директорию
 WORKDIR /var/www
 
-# Копируем проект внутрь контейнера
+# Копируем проект
 COPY . .
 
 # Устанавливаем зависимости Laravel
-RUN composer install
+RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
-# Генерируем ключ
-RUN php artisan key:generate
+# Генерируем ключ (можно убрать, если нет .env)
+# RUN php artisan key:generate
 
-# Делаем публичные файлы доступными
-RUN chmod -R 755 /var/www/storage /var/www/bootstrap/cache
+# Права доступа
+RUN chmod -R 775 storage bootstrap/cache
 
-# Указываем порт и команду запуска
+# Laravel будет слушать порт 8000
 EXPOSE 8000
+
+# Запуск Laravel
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
