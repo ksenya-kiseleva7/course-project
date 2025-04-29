@@ -1,12 +1,29 @@
+# Используем официальный PHP-образ с FPM
 FROM php:8.2-fpm
 
-# Установим зависимости
+# Установим зависимости для PHP и Composer
 RUN apt-get update && apt-get install -y \
-    git curl zip unzip libpng-dev libjpeg-dev libfreetype6-dev libonig-dev libxml2-dev \
-    && docker-php-ext-install pdo pdo_mysql mbstring zip exif pcntl bcmath gd
+    git \
+    curl \
+    zip \
+    unzip \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    libonig-dev \
+    libxml2-dev \
+    libzip-dev \
+    pkg-config \
+    libssl-dev \
+    && docker-php-ext-install pdo pdo_mysql mbstring zip exif pcntl bcmath gd \
+    && apt-get clean
 
-# Установим Composer
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+# Устанавливаем Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Устанавливаем Node.js и npm (если нужно для работы с фронтендом)
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - \
+    && apt-get install -y nodejs
 
 # Создаём рабочую директорию
 WORKDIR /var/www
