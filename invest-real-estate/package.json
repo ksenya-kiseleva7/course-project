@@ -2,8 +2,8 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "invest-real-estate/node_modules/.bin/vite build",
-        "dev": "invest-real-estate/node_modules/.bin/vite"
+        "build": "node_modules/.bin/vite build",
+        "dev": "node_modules/.bin/vite"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",

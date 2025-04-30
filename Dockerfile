@@ -29,7 +29,7 @@ RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - \
 WORKDIR /var/www
 
 # Копируем проект
-COPY invest-real-estate .
+COPY invest-real-estate/invest-real-estate .
 
 # Устанавливаем зависимости Laravel
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
