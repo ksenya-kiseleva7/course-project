@@ -1,0 +1,61 @@
+
+
+//отступы
+.pt-100{
+    @include fluid-space(padding-top, 100, 60);
+}
+.pb-100{
+    @include fluid-space(padding-bottom, 100, 60);
+}
+.mt-100{
+    @include fluid-space(margin-top, 100, 60);
+}
+.mb-100{
+    @include fluid-space (margin-bottom, 100, 60);
+}
+.pt-60{
+    @include fluid-space(padding-top, 60, 40);
+}
+.pb-60{
+    @include fluid-space(padding-bottom, 60, 40);
+}
+.mt-60{
+    @include fluid-space(margin-top, 60, 40);
+}
+.mb-60{
+    @include fluid-space(margin-bottom, 60, 40);
+}
+
+.mb-40{
+    @include fluid-space(margin-bottom, 40, 20);
+}
+.mt-30 {
+    @include fluid-space(margin-top,30);
+}
+
+.mb-30 {
+    @include fluid-space(margin-bottom, 30);
+}
+
+.pt-30{
+    @include fluid-space(padding-top, 30);
+}
+.pb-30{
+    @include fluid-space(padding-bottom, 30);
+}
+.pt-20{
+    @include fluid-space(padding-top, 20);
+}
+.pb-20{
+    @include fluid-space(padding-bottom, 20);
+}
+.mt-20{
+    @include fluid-space(margin-top, 20);
+}
+.mb-20{
+    margin-bottom: 20px;
+}
+.mb-10 {
+    @include fluid-space(margin-bottom, 10);
+}
+
