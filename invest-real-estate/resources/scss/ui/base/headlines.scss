@@ -1,12 +1,14 @@
+
+
 //заголовки
 .h1 {
-    @include fluid-text(64, 24, 1.4, false); // 140%
+    @include fluid-text(64, 24, 1.4); // 140%
     color: $white;
     font-weight: 800;
 }
 
 .h2 {
-    @include fluid-text(40, 24, 1.2, false); // 120%
+    @include fluid-text(40, 24, 1.2); // 120%
     color: $white;
     font-weight: 600;
 }
