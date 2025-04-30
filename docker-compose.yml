@@ -2,7 +2,7 @@ services:
     laravel:
         container_name: laravel_app
         build:
-            context: .
+            context: invest-real-estate
         volumes:
             - ./:/var/www
         depends_on:
