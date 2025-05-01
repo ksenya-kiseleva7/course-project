@@ -21,21 +21,18 @@ RUN apt-get update && apt-get install -y \
 # Устанавливаем Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Устанавливаем Node.js и npm (если нужно для работы с фронтендом)
+# Устанавливаем Node.js и npm
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - \
     && apt-get install -y nodejs
 
 # Создаём рабочую директорию
 WORKDIR /var/www
 
-# Копируем проект
-COPY invest-real-estate/invest-real-estate .
+# Копируем всё содержимое внутрь контейнера
+COPY . .
 
 # Устанавливаем зависимости Laravel
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
-
-# Генерируем ключ (можно убрать, если нет .env)
-# RUN php artisan key:generate
 
 # Права доступа
 RUN chmod -R 775 storage bootstrap/cache
