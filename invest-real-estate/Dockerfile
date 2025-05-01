@@ -33,6 +33,7 @@ COPY . .
 
 # Устанавливаем зависимости Laravel
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
+RUN php artisan key:generate
 
 # Права доступа
 RUN chmod -R 775 storage bootstrap/cache
