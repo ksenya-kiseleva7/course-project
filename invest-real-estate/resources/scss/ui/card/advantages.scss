@@ -1,0 +1,59 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    text-align: center;
+    width: 296px;
+    height: 296px;
+    padding: 28px 24px;
+    background: linear-gradient(180deg, rgba(255,255,255,1) 65%, rgba(255,255,255,0.3) 100%);
+    box-shadow: 0 6px 30px 0 rgba(20,35,70,0.09);
+    border-radius: 26px;
+    border: 2px solid $white;
+    //margin: 50px auto;
+    //overflow: hidden;
+
+    &__title {
+        margin-bottom: 14px;
+        text-align: center;
+    }
+
+    &__description {
+        //font-size: 18px;
+        //line-height: 140%;
+        //font-weight: 400;
+        color: #333;
+        text-align: center;
+    }
+}
+
+.bg-anim {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 160px;
+    height: 160px;
+    pointer-events: none;
+}
+
+.bg-anim #animPath {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    animation: drawAnim 2s linear forwards;
+    /* Для бесконечной анимации раскомментируй следующую строку: */
+    animation-iteration-count: infinite;
+}
+
+@keyframes drawAnim {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+.card--center {
+    top: 0;
+    z-index: 2;
+    background: #fff;
+    box-shadow: 0 8px 40px rgba(24, 46, 58, 0.25);
+
+
+}
