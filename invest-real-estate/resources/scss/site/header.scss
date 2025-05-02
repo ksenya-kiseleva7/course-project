@@ -1,7 +1,9 @@
 header {
-    position: sticky;
+    position: absolute;
+    width: 100%;
     top: 0;
     z-index: 100;
+    margin-top: 24px;
     //border-bottom: 1px solid $gray;
 }
 .header:has(.header__search.active) {
@@ -17,9 +19,6 @@ header {
 
 .header {
     width: 100%;
-    background-color: rgba(240, 243, 246, 0.5);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
     transition: all 0.3s ease;
 
 
@@ -32,7 +31,7 @@ header {
     }
 
     &__logo {
-        max-width: 260px;
+        max-width: 100px;
 
         @media screen and (max-width: 1024px) {
             width: 200px;
@@ -70,9 +69,13 @@ header {
         grid-template-columns: 1fr auto;
         gap: 12px;
         justify-content: space-between;
-        padding-top: 15px;
-        padding-bottom: 15px;
+        padding: 19px 30px;
         transition: padding 0.3s ease;
+        border: 2px solid $white;
+        border-radius: 24px;
+        background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.3) 100%);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
 
         @media (max-width: 990px) and (min-width: 576px) {
             grid-template-columns: 100%;
@@ -88,7 +91,8 @@ header {
         position: relative;
         width: 100%;
         display: flex;
-        flex-direction: column;
+        //flex-direction: column;
+        align-items: center;
         gap: 15px;
 
         @media (max-width: 990px) and (min-width: 576px) {
@@ -266,7 +270,7 @@ header {
     .menu {
         display: flex;
         flex-direction: row;
-        gap: 53px;
+        gap: 40px;
         align-items: center;
 
         @media screen and (max-width: 1366px) {
@@ -290,8 +294,10 @@ header {
         align-items: center;
         gap: 5px;
         font-size: 14px;
+        font-weight: 500px;
         transition: all 0.2s;
         cursor: pointer;
+        color: $black;
 
         &:hover, &:focus, &.active {
             //color: $dark-red;

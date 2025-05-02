@@ -5,56 +5,55 @@
                 <img src="{{ 'svg/logo.svg' }}" alt="logo">
             </a>
             <div class="header__content">
-                <div class="header__top">
-                    <div class="header__row">
-                        <div class="burger burger--mobile">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <a href="/" class="header__logo header__logo--mobile">
-                            <img src="{{ 'svg/logo.svg' }}" alt="logo">
-                        </a>
-                    </div>
-                    <div class="header__info">
-                        <a data-fancybox data-src="#time-modal" class="header__item">
+{{--                <div class="header__top">--}}
+{{--                    <div class="header__row">--}}
+{{--                        <div class="burger burger--mobile">--}}
+{{--                            <span></span>--}}
+{{--                            <span></span>--}}
+{{--                            <span></span>--}}
+{{--                        </div>--}}
+{{--                        <a href="/" class="header__logo header__logo--mobile">--}}
+{{--                            <img src="{{ 'svg/logo.svg' }}" alt="logo">--}}
+{{--                        </a>--}}
+{{--                    </div>--}}
+{{--                    <div class="header__info">--}}
+{{--                        <a data-fancybox data-src="#time-modal" class="header__item">--}}
 {{--                            <img src="{{ 'svg/time-MP.svg' }}" alt="time">--}}
-                            <span>Время работы</span>
-                        </a>
-                        <a data-fancybox data-src="#address-modal" class="header__item">
+{{--                            <span>Проекты</span>--}}
+{{--                        </a>--}}
+{{--                        <a data-fancybox data-src="#address-modal" class="header__item">--}}
 {{--                            <img src="{{ 'svg/location-MP.svg' }}" alt="location">--}}
-                            <span>Наш адрес</span>
-                        </a>
-                        <a href="mailto:info@test.ru" class="header__item">
+{{--                            <span>Как это работает</span>--}}
+{{--                        </a>--}}
+{{--                        <a href="mailto:info@test.ru" class="header__item">--}}
 {{--                            <img src="{{ 'svg/mail-MP.svg' }}" alt="mail">--}}
-                            <span>info@test.ru</span>
-                        </a>
-                        <a href="tel:+7900800XXXX" class="header__item tel-2">
-                            <span>+7 900 800-XX-XX</span>
-                        </a>
-                        <div class="header__row">
-                            <div class="header__item header__item--mobile header-search__open">
-                                <img src="{{ 'svg/search.svg' }}" alt="search">
-                            </div>
+{{--                            <span>О продукте</span>--}}
+{{--                        </a>--}}
+{{--                        <a href="tel:+7900800XXXX" class="header__item tel-2">--}}
+{{--                            <span>Блог</span>--}}
+{{--                        </a>--}}
+{{--                        <a data-fancybox data-src="#address-modal" class="header__item">--}}
+{{--                            --}}{{--                            <img src="{{ 'svg/location-MP.svg' }}" alt="location">--}}
+{{--                            <span>Партнерам</span>--}}
+{{--                        </a>--}}
+{{--                        <div class="header__row">--}}
+{{--                            <div class="header__item header__item--mobile header-search__open">--}}
+{{--                                <img src="{{ 'svg/search.svg' }}" alt="search">--}}
+{{--                            </div>--}}
 
-                        </div>
-                    </div>
-                </div>
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
                 <div class="header__bottom">
                     <nav class="menu">
 
-                        <a href="/services" class="header__item">Услуги</a>
-                        <a href="/about" class="header__item">О компании</a>
-                        <a href="/projects" class="header__item">Наши работы</a>
-                        <a href="/delivery" class="header__item">О доставке</a>
-                        <a href="/news" class="header__item">Новости</a>
+                        <a href="/services" class="header__item">Проекты</a>
+                        <a href="/about" class="header__item">Как это работает</a>
+                        <a href="/projects" class="header__item">О продукте</a>
+                        <a href="/delivery" class="header__item">Блог</a>
+                        <a href="/news" class="header__item">Партнерам</a>
+                        <a href="/contacts" class="header__item">Команда</a>
                         <a href="/contacts" class="header__item">Контакты</a>
-                        <div class="header__item header-search__open">
-                            <img src="{{ 'svg/search.svg' }}" alt="search">
-                            <div class="menu__item-wrap">
-                                Поиск
-                            </div>
-                        </div>
                     </nav>
                 </div>
                 <!-- перекидывать на страницу поиска после бека -->
