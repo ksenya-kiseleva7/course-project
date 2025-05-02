@@ -18,7 +18,7 @@
     <title>Новый инструмент инвестирования в зарубежную недвижимость</title>
 </head>
 <body>
-{{--@include('partials/site/header')--}}
+@include('partials/site/header')
 
 @yield('content')
 
