@@ -1,0 +1,51 @@
+.banner-section {
+    position: relative;
+    width: 100%;
+    overflow: visible;
+    padding-bottom: 80px; /* для места под карточками */
+}
+
+.banner-section__img {
+    width: 100%;
+    display: block;
+    border-bottom-right-radius: 48px;
+    border-bottom-left-radius: 48px;
+    object-fit: cover;
+}
+
+.banner-section__text {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -25%);
+    color: #fff;
+    width: 90%;
+    text-align: center;
+    z-index: 2;
+}
+
+.cards-row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 24px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -64px;
+    z-index: 3;
+    width: 90%;
+}
+
+.card-anim {
+    transition:
+        transform 0.33s cubic-bezier(.4,2,.4,1),
+        box-shadow 0.32s;
+    will-change: transform, box-shadow;
+}
+
+.card-anim:hover {
+    transform: translateY(-24px) scale(1.04);
+    box-shadow: 0 14px 48px 0 rgba(30, 34, 47, 0.23);
+    z-index: 4;
+}
