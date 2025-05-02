@@ -14,8 +14,8 @@
 }
 
 .h3 {
-    @include fluid-text(30, 16, 1.2); // 120%
-    font-weight: 600;
+    @include fluid-text(30, 16, 1.4); // 120%
+    font-weight: 700;
 }
 .h3-2 {
     @include fluid-text(30, 24, 1.2);
@@ -23,8 +23,8 @@
 }
 
 .h4 {
-    @include fluid-text(24, 18, 1.3); // 130%
-    font-weight: 500;
+    @include fluid-text(18, 16, 1.4); // 130%
+    font-weight: 400;
 }
 
 .h5 {
