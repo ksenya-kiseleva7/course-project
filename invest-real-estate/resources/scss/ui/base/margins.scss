@@ -7,11 +7,11 @@
 .pb-100{
     @include fluid-space(padding-bottom, 100, 60);
 }
-.mt-100{
-    @include fluid-space(margin-top, 100, 60);
+.mt-120{
+    @include fluid-space(margin-top, 120, 80);
 }
-.mb-100{
-    @include fluid-space (margin-bottom, 100, 60);
+.mb-120{
+    @include fluid-space (margin-bottom, 120, 80);
 }
 .pt-60{
     @include fluid-space(padding-top, 60, 40);

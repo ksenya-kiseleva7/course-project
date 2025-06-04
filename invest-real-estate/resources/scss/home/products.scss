@@ -1,0 +1,171 @@
+.container-card {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.products-card {
+    display: flex;
+    position: relative;
+    width: 100%;
+    flex-direction: column;
+    background-color: $black;
+    padding: 60px 40px;
+    border-radius: 24px;
+
+    &__decor {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateX(163%); // сдвигаем левее границы блока
+        height: auto;
+        width: 300px;
+        object-fit: contain;
+        opacity: 0.07;
+        z-index: auto; // ставим за контент
+        pointer-events: none;
+    }
+
+    &__title {
+        color: $white;
+    }
+
+    &__icon-metrics {
+        width: 25px;
+        height: auto;
+    }
+
+
+    &__subtitle {
+        color: $white;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin-bottom: 24px;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 14px;
+    }
+
+&__metrics-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+    &__descr {
+        font-size: 18px;
+        color: $white;
+    }
+
+    &__metrics-descr {
+        color: $dark;
+    }
+
+    &__icon {
+        width: 25px;
+        height: auto;
+    }
+
+    &__icon-metrics {
+        width: 17px;
+        height: 17px;
+    }
+
+    &__metrics-item {
+        display: flex;
+        width: fit-content;
+        height:29px;
+        padding: 20px 9px;
+        border-radius: 999px;
+        background-color: $white;
+        flex-direction: row;
+        align-items: center;
+        gap: 2px;
+    }
+}
+
+.products-card-white {
+    display: flex;
+    position: relative;
+    width: 100%;
+    flex-direction: column;
+    background-color: $white;
+    padding: 60px 40px;
+    border-radius: 24px;
+
+    &__decor {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateX(163%); // сдвигаем левее границы блока
+        height: auto;
+        width: 300px;
+        object-fit: contain;
+        opacity: 0.07;
+        z-index: auto; // ставим за контент
+        pointer-events: none;
+    }
+
+    &__title {
+        color: $dark;
+    }
+
+    &__metrics-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 24px;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin-bottom: 24px;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 14px;
+    }
+
+    &__metrics-descr {
+        font-size: 18px;
+        color: $white;
+    }
+
+    &__icon-metrics {
+        width: 17px;
+        height: 17px;
+        color: $dark;
+    }
+
+
+    &__metrics-item {
+        display: flex;
+        width: fit-content;
+        height:29px;
+        padding: 20px 9px;
+        border-radius: 999px;
+        background-color: $dark;
+        flex-direction: row;
+        align-items: center;
+        gap: 2px;
+    }
+
+    &__icon {
+        width: 25px;
+        height: auto;
+    }
+}

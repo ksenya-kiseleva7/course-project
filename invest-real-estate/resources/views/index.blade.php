@@ -4,6 +4,7 @@
     <main>
         @include('partials/home/banner')
         @include('partials/home/products')
+        @include('partials/home/invest-object')
 {{--        @include('partials/home/about')--}}
 {{--        @include('partials/home/project')--}}
 {{--        @include('partials/home/servise')--}}
@@ -12,3 +13,5 @@
 {{--        @include('partials/site/contact')--}}
     </main>
 @endsection
+
+
